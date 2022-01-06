@@ -15,26 +15,30 @@ for (loop = 0; loop < 20; loop++) {
   const drawedGender = randChoice(genders);
   const drawedFirstName = drawedGender === 'M' ? randChoice(maleNames) : randChoice(femaleNames);
   const drawedLastName = randChoice(lastNames);
-  // const drawedAge = 
+  
+  // const drawedLastName = Math.random...?????
+
+  const drawedAge = Math.floor(Math.random() * 60) + 18;
+  const drawedPhone = Math.floor(Math.random() * (889999999 - 500000000) + 500000000);
 
   const renderedPerson = {
     gender: drawedGender,
     firstName: drawedFirstName,
     lastName: drawedLastName,
-    // age: drawedAge,
+    age: drawedAge,
+    phone: drawedPhone,
 
   };
 
   people.push(renderedPerson);
+}
 
-  const arrayToJSON = JSON.stringify(people);
+const arrayToJSON = JSON.stringify(people);
   
   fs.writeFile('people.json', arrayToJSON, (err) => {
     if (err) throw err;
     console.log('The file has been saved!');
   });
-}
-
 
 
 
